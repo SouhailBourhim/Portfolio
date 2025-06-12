@@ -79,9 +79,11 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 header.scrolled {
@@ -94,6 +96,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -189,6 +192,40 @@ nav {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg);
     top: 9px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--darker);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        transition: right 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .hamburger.active {
+        position: fixed;
+        right: 20px;
+    }
 }
 
 /* Hero Section */
