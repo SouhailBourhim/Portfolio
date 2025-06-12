@@ -1,10 +1,8 @@
 <?php
-// Enable error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Email configuration
 $to = "bourhimsouhail@gmail.com";
 $subject = "Test Email from Portfolio";
 $message = "This is a test email to verify that the mail function is working on your server.";
@@ -13,10 +11,8 @@ $headers .= "Reply-To: test@yourdomain.com\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-// Try to send email
 $mail_sent = mail($to, $subject, $message, $headers);
 
-// Display results
 echo "<h1>Email Test Results</h1>";
 
 if ($mail_sent) {
@@ -33,7 +29,6 @@ if ($mail_sent) {
     echo "<p>Consider using an alternative method like PHPMailer with SMTP.</p>";
 }
 
-// Display server information
 echo "<h2>Server Information</h2>";
 echo "<p>PHP Version: " . phpversion() . "</p>";
 echo "<p>Server Software: " . $_SERVER['SERVER_SOFTWARE'] . "</p>";

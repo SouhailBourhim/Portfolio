@@ -1,19 +1,15 @@
 <?php
-// Enable error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Set content type to JSON
 header('Content-Type: application/json');
 
-// Get form data
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
 $subject = $_POST['subject'] ?? '';
 $message = $_POST['message'] ?? '';
 
-// Debug information
 $debug = [
     'post_data' => $_POST,
     'server' => $_SERVER['SERVER_SOFTWARE'] ?? 'Unknown',
@@ -22,7 +18,6 @@ $debug = [
     'sendmail_path' => ini_get('sendmail_path') ?: 'Not set'
 ];
 
-// Validate inputs
 if (empty($name) || empty($email) || empty($subject) || empty($message)) {
     echo json_encode([
         'success' => false,
@@ -92,10 +87,8 @@ $response = [
     'debug' => $debug
 ];
 
-// Ensure proper JSON encoding
 $json_response = json_encode($response);
 if ($json_response === false) {
-    // If JSON encoding fails, create a simpler response
     $json_response = json_encode([
         'success' => $mail_sent,
         'message' => $mail_sent 
