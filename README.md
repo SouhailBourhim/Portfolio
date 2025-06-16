@@ -105,7 +105,7 @@ Please open an issue to start a discussion. Thanks!
 
 ## ⚖️ License
 
-This project is available under the **MIT License**. See `LICENSE` for details (if provided).
+This project is available under the **MIT License**.
 
 ---
 
